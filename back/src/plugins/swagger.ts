@@ -57,6 +57,10 @@ const swaggerOpts: SwaggerOptions = {
         name: "temas",
         description: "Endpoints para CRUD de temas.",
       },
+      {
+        name: "comentario",
+        description: "Endpoints para CRUD de comentario.",
+      },
     ],
   },
   hideUntagged: true,

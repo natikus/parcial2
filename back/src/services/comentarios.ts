@@ -17,13 +17,14 @@ export const findAll = async (id_tema: number) => {
 export const create = async (
   id_tema: number,
   id_usuario: number,
-  descripcion: string
+  descripcion: string,
+  titulo: string
 ) => {
   const query = `
-    INSERT INTO public.comentarios(id_tema,id_usuario,descripcion)
+    INSERT INTO public.comentarios(id_tema,id_usuario,descripcion, titulo)
     VALUES ($1,$2,$3)
   `;
-  await db.query(query, [id_tema, id_usuario, descripcion]);
+  await db.query(query, [id_tema, id_usuario, descripcion, titulo]);
   return findAll(id_tema);
 };
 
@@ -31,7 +32,8 @@ export const create = async (
 export const modify = async (
   id_tema: number,
   id_comentario: number,
-  descripcion: string
+  descripcion: string,
+  titulo: string
 ) => {
   const query = `
     UPDATE public.comentarios SET descripcion=$3
